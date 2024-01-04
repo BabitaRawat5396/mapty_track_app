@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      defer
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script defer src="script.js"></script>
+    <title>Mapty | Tracking Workout</title>
+  </head>
+  <body>
+    <!-- Showing Map -->
+    <div id="map"></div>
+    <div class="threeLines">&#8801;</div>
+
+    <!-- Setting workout window -->
+    <ul
+      class="workout__window workout__window--position workout__window--hidden"
+    >
+      <div class="sidebar__icons">
+        <div class="threeLines workouts__menu--icon" style="font-size: 1.2rem">
+          &#8801;
+        </div>
+        <div class="close__side__bar">&#10006;</div>
+      </div>
+      <ul class="workouts__menu workouts__menu--hidden">
+        <li class="workouts__menu__list workouts__menu--delete">
+          Delete all workouts
+        </li>
+
+        <li class="workouts__menu__list sort" id="sortButton">
+          Sort workouts &#8964;
+          <ul
+            class="workout__sorting workout__sorting--hidden"
+            id="sortingDropdown"
+          >
+            <li class="workouts__menu__list workouts__menu--recent">Recent</li>
+            <li class="workouts__menu__list workouts__menu--distance">
+              Distance
+            </li>
+            <li class="workouts__menu__list workouts__menu--duration">
+              Duration
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <img src="logo.png" alt="logo" />
+
+      <!-- Putting Workout Data -->
+      <form class="form">
+        <div class="form__row">
+          <label class="form__label">Type</label>
+          <select class="form__input form__input--type">
+            <option value="running">Running</option>
+            <option value="cycling">Cycling</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label class="form__label">Distance</label>
+          <input
+            class="form__input form__input--distance"
+            type="text"
+            placeholder="km"
+          />
+        </div>
+        <div class="form__row">
+          <label class="form__label">Duration</label>
+          <input
+            class="form__input form__input--duration"
+            type="text"
+            placeholder="min"
+          />
+        </div>
+        <div id="cadence__div" class="form__row">
+          <label class="form__label">Cadence</label>
+          <input
+            class="form__input form__input--cadence"
+            type="text"
+            placeholder="step/min"
+          />
+        </div>
+        <div id="elevgain__div" class="form__row form_row--hidden">
+          <label class="form__label">Elev Gain</label>
+          <input
+            class="form__input form__input--elevgain"
+            type="text"
+            placeholder="meters"
+          />
+        </div>
+        <button type="submit" class="form_btn">Ok</button>
+      </form>
+
+      <!-- Showing Workouts Data -->
+    </ul>
+
+    <div class="overlay workout__window--hidden"></div>
+  </body>
+</html>

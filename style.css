@@ -1,0 +1,275 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+li {
+  list-style: none;
+}
+
+#map {
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+.threeLines {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  z-index: 2;
+  font-size: 2.3rem;
+  background-color: rgb(45, 52, 57, 0.6);
+  color: white;
+  padding: 0rem 0.6rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.workout__window {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-light--1);
+    border-radius: 6px;
+  }
+}
+
+.close__side__bar {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.workout__window--position {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  height: 90vh;
+  width: 480px;
+  border-radius: 0.5rem;
+  gap: 2rem;
+  padding: 1rem 0rem;
+}
+
+.sideBar__window {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  height: 100vh;
+  width: 480px;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.sidebar__icons {
+  width: 100%;
+}
+
+.workouts__menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 8.5%;
+  top: 4%;
+  background-color: var(--color-dark--2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1px solid var(--color-light--1);
+}
+
+.workout__sorting--hidden {
+  display: none;
+}
+
+.workouts__menu--hidden {
+  display: none;
+}
+
+.workouts__menu__list {
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.sort {
+  display: inline-flex;
+  align-self: baseline;
+}
+
+.workout__sorting {
+  position: absolute;
+  border: 0.1px solid var(--color-light--1);
+  bottom: -94%;
+  right: -9%;
+  background-color: var(--color-dark--2);
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+}
+
+.workout__window img {
+  width: 40%;
+}
+
+.workout__window--hidden {
+  display: none;
+}
+
+.workout {
+  width: 85%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--color-dark--2);
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+}
+
+.workout__heading {
+  display: flex;
+  justify-content: space-between;
+  grid-column: span 4;
+}
+
+.workout__menu__icon {
+  cursor: pointer;
+}
+
+.workout__menu {
+  display: flex;
+  gap: 2rem;
+  padding: 0rem 1rem;
+}
+
+.workout__menu--running:hover {
+  color: var(--color-brand--2);
+}
+
+.workout__menu--cycling:hover {
+  color: var(--color-brand--1);
+}
+
+.workout__menu--hidden {
+  display: none;
+}
+
+.workout__info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.workout__info--hidden {
+  display: none;
+}
+
+.workout__title {
+  font-size: 1.1rem;
+}
+
+.workout--cycling {
+  border-left: 3px solid var(--color-brand--1);
+}
+
+.workout--running {
+  border-left: 3px solid var(--color-brand--2);
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(2px);
+}
+
+.form {
+  width: 83%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background-color: var(--color-dark--2);
+  padding: 1.3rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--color-dark--2);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.form_row--hidden {
+  display: none;
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.1rem 0.5rem;
+  outline: none;
+  border: none;
+}
+
+.form_btn {
+  display: none;
+}
+
+/* Popup width is defined in JS using options */
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-dark--1);
+  color: var(--color-light--2);
+  border-radius: 5px;
+  padding-right: 0.6rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 0.8rem;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: var(--color-dark--1);
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+/* @media (max-width: 768px) {
+} */
